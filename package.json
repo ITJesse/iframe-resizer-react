@@ -6,6 +6,7 @@
   "license": "MIT",
   "repository": "davidjbradshaw/iframe-resizer-react",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc -d"
   },
