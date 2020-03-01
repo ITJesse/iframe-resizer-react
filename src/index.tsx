@@ -10,16 +10,18 @@ import warning from 'warning'
 
 import filterIframeAttribs from './filter-iframe-attribs'
 
-interface Props {}
+interface Props {
+  title: string
+}
 interface Handler {
   resize: () => void
   moveToAnchor: (anchor: string) => void
   sendMessage: (message: any, targetOrigin?: string) => void
 }
-const IframeResizer: RefForwardingComponent<
-  Handler,
-  Props & IFrameOptions & React.HTMLProps<HTMLIFrameElement>
-> = (props, forwardRef) => {
+const IframeResizer: RefForwardingComponent<Handler, Props & IFrameOptions> = (
+  props,
+  forwardRef,
+) => {
   const { title, ...rest } = props
   const iframeProps = filterIframeAttribs(rest)
   const iframeRef = useRef<HTMLIFrameElement>(null)
