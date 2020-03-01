@@ -1,4 +1,6 @@
-export default props => {
+import { IFrameOptions } from 'iframe-resizer'
+
+export default (props: IFrameOptions) => {
   const {
     autoResize,
     bodyBackground,
@@ -24,6 +26,7 @@ export default props => {
     onInit,
     onMessage,
     onResized,
+    onScroll,
     ...iframeProps
   } = props
 
