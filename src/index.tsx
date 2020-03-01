@@ -10,6 +10,7 @@ import warning from 'warning'
 
 import filterIframeAttribs from './filter-iframe-attribs'
 
+interface Props {}
 interface Handler {
   resize: () => void
   moveToAnchor: (anchor: string) => void
@@ -17,7 +18,7 @@ interface Handler {
 }
 const IframeResizer: RefForwardingComponent<
   Handler,
-  IFrameOptions & React.HTMLProps<HTMLIFrameElement>
+  Props & IFrameOptions & React.HTMLProps<HTMLIFrameElement>
 > = (props, forwardRef) => {
   const { title, ...rest } = props
   const iframeProps = filterIframeAttribs(rest)
@@ -65,4 +66,4 @@ const IframeResizer: RefForwardingComponent<
   return <iframe title={title} {...iframeProps} ref={iframeRef} />
 }
 
-export default IframeResizer
+export default React.forwardRef(IframeResizer)
